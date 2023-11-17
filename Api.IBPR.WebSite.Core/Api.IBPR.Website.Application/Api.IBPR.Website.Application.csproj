@@ -1,7 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="Api.IBPR.Website.Application.csproj" />
     <ProjectReference Include="..\Api.IBPR.Website.Domain\Api.IBPR.Website.Domain.csproj" />
   </ItemGroup>
 
