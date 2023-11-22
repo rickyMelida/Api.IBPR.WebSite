@@ -1,9 +1,9 @@
-using Api.IBPR.Website.Persistence.Context;
+using Api.IBPR.Website.Infrastructure.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Api.IBPR.Website.Infrastructure.Api.IBPR.Website.Persistence
+namespace Api.IBPR.Website.Infrastructure.Persistence
 {
     public static class ServiceExtensions
     {

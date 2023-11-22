@@ -1,4 +1,4 @@
-using Api.IBPR.Website.Core.Domain.Entities.Common;
+using Api.IBPR.Website.Core.Domain.Common;
 
 namespace Api.IBPR.Website.Core.Application.Common
 {

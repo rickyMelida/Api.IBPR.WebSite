@@ -7,15 +7,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api.IBPR.Website.Presentati
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.IBPR.Website.WebAPI", "Api.IBPR.Website.Presentation\Api.IBPR.Website.WebAPI\Api.IBPR.Website.WebAPI.csproj", "{47F5845B-8B1A-454E-ACD4-72A29205A93F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api.IBPR.WebSite.Core", "Api.IBPR.WebSite.Core", "{DA7F61F1-6348-447C-8F93-F4D83AE9E2A3}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api.IBPR.Website.Core", "Api.IBPR.Website.Core", "{DA7F61F1-6348-447C-8F93-F4D83AE9E2A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.IBPR.Website.Application", "Api.IBPR.WebSite.Core\Api.IBPR.Website.Application\Api.IBPR.Website.Application.csproj", "{D1B21AF7-50C0-4F64-A35F-BAA09DF1A58F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.IBPR.Website.Application", "Api.IBPR.Website.Core\Api.IBPR.Website.Application\Api.IBPR.Website.Application.csproj", "{D1B21AF7-50C0-4F64-A35F-BAA09DF1A58F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.IBPR.Website.Domain", "Api.IBPR.WebSite.Core\Api.IBPR.Website.Domain\Api.IBPR.Website.Domain.csproj", "{011BC963-2173-40AB-864A-32F432A367CF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.IBPR.Website.Domain", "Api.IBPR.Website.Core\Api.IBPR.Website.Domain\Api.IBPR.Website.Domain.csproj", "{011BC963-2173-40AB-864A-32F432A367CF}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api.IBPR.WebSite.Infrastructure", "Api.IBPR.WebSite.Infrastructure", "{32770F19-6CDF-4810-BC2E-B436D8D91E5E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api.IBPR.Website.Infrastructure", "Api.IBPR.Website.Infrastructure", "{32770F19-6CDF-4810-BC2E-B436D8D91E5E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.IBPR.Website.Persistence", "Api.IBPR.WebSite.Infrastructure\Api.IBPR.Website.Persistence\Api.IBPR.Website.Persistence.csproj", "{76C2B5E8-EB63-46B7-8052-F6246A41FC37}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.IBPR.Website.Persistence", "Api.IBPR.Website.Infrastructure\Api.IBPR.Website.Persistence\Api.IBPR.Website.Persistence.csproj", "{76C2B5E8-EB63-46B7-8052-F6246A41FC37}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

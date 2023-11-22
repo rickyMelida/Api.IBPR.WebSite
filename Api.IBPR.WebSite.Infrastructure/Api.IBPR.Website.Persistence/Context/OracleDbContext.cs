@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Api.IBPR.Website.Persistence.Context
+namespace Api.IBPR.Website.Infrastructure.Persistence.Context
 {
     public class OracleDbContext: DbContext
     {

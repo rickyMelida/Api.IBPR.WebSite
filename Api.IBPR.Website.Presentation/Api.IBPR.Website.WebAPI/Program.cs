@@ -1,4 +1,4 @@
-using Api.IBPR.Website.Infrastructure.Api.IBPR.Website.Persistence;
+using Api.IBPR.Website.Infrastructure.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 

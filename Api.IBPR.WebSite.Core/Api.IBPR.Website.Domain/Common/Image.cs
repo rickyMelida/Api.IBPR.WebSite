@@ -1,4 +1,4 @@
-namespace Api.IBPR.Website.Core.Domain.Entities.Common
+namespace Api.IBPR.Website.Core.Domain.Common
 {
     public class Image
     {
