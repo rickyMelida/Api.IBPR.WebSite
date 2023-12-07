@@ -1,11 +1,17 @@
+using Api.IBPR.Website.Application;
 using Api.IBPR.Website.Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
+using AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+
+builder.Services.ConfigureApplication();
+builder.Services.ConfigurePersistence(builder.Configuration);
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

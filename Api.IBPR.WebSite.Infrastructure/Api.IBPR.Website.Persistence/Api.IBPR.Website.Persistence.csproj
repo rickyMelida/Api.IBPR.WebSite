@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Api.IBPR.Website.Core\Api.IBPR.Website.Application\Api.IBPR.Website.Application.csproj" />
     <ProjectReference Include="..\..\Api.IBPR.WebSite.Core\Api.IBPR.Website.Domain\Api.IBPR.Website.Domain.csproj" />
   </ItemGroup>
 

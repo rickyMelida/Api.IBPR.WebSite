@@ -14,6 +14,7 @@ namespace Api.IBPR.Website.Infrastructure.Persistence.Context
         { }
 
         public DbSet<Article>  Articles { get; set; }
+        public DbSet<Values> Values { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

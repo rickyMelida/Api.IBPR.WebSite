@@ -1,6 +1,7 @@
 using Api.IBPR.Website.Core.Application.Repositories;
 using Api.IBPR.Website.Core.Domain.Entities;
 using Api.IBPR.Website.Infrastructure.Persistence.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace Api.IBPR.Website.Infrastructure.Persistence.Repositories
 {
@@ -28,9 +29,9 @@ namespace Api.IBPR.Website.Infrastructure.Persistence.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<List<Values>> GetAll()
+        public async Task<List<Values>> GetAll()
         {
-            throw new NotImplementedException();
+            return await _dbcontext.Values.ToListAsync();
         }
 
         public void Update(Values entity)

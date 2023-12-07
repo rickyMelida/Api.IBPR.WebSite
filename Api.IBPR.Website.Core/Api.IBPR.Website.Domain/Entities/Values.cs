@@ -6,5 +6,10 @@ namespace Api.IBPR.Website.Core.Domain.Entities
     {
         public int Id { get; set; }
         public string Text { get; set; }
+
+        public static implicit operator Values(List<Values> v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
