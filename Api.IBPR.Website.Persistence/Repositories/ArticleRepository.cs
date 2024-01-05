@@ -1,6 +1,7 @@
-﻿using Api.IBPR.Website.Core.Application.Repositories;
-using Api.IBPR.Website.Core.Domain.Entities;
-using Api.IBPR.Website.Infrastructure.Persistence.Context;
+﻿using Api.IBPR.Website.Application.Repositories;
+using Api.IBPR.Website.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
+using Api.IBPR.Website.Persistence.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +12,10 @@ namespace Api.IBPR.Website.Persistence.Repositories
 {
     public class ArticleRepository : IArticle
     {
-        private readonly OracleDbContext Context;
+        private readonly AppDbContext _context;
 
-        public ArticleRepository(OracleDbContext context) => 
-            Context = context;
+        public ArticleRepository(AppDbContext context) => 
+            _context = context;
         
 
         public Task DeleteArticle(Article article)
@@ -22,14 +23,14 @@ namespace Api.IBPR.Website.Persistence.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<Article> GetArticle(int Id)
+        public async Task<Article> GetArticle(int id)
         {
-            throw new NotImplementedException();
+            return await _context.Article.FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        public IEnumerable<Article> GetArticles(int Id)
+        public async Task<List<Article>> GetArticles()
         {
-            return Context.Articles;
+            return await _context.Article.ToListAsync();
         }
 
         public Task<List<Article>> GetArticlesByTagId(int Id)
@@ -44,7 +45,7 @@ namespace Api.IBPR.Website.Persistence.Repositories
 
         public void SetArticle(Article article)
         {
-            Context.Add(article);
+            throw new NotImplementedException();
         }
 
         public Task UpdateArticle(Article article)

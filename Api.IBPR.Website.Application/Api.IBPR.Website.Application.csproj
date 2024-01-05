@@ -6,4 +6,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Api.IBPR.Website.Domain\Api.IBPR.Website.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

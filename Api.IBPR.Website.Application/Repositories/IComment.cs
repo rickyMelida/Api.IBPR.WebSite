@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Api.IBPR.Website.Domain.Entities;
 
 namespace Api.IBPR.Website.Application.Repositories
 {
