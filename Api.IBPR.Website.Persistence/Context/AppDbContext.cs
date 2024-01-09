@@ -21,7 +21,7 @@ namespace Api.IBPR.Website.Persistence.Context
 
             modelBuilder.Entity<Article>(entity=>
             {
-                entity.ToTable("ARTICLES", "TARJETA");
+                entity.ToTable("ARTICLES", "WEBSITE");
                 
                 entity.Property(e => e.Id).HasColumnName("ID");
                 entity.Property(e => e.Author).HasColumnName("AUTHOR");

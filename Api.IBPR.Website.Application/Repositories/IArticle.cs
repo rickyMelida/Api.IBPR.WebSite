@@ -10,7 +10,7 @@ namespace Api.IBPR.Website.Application.Repositories
     {
         Task<Article> GetArticle (int Id);
         Task<List<Article>> GetArticles ();
-        Task<List<Article>> GetRecentsArticles();
+        Task<List<Article>> GetRecentsArticles(int amount);
         Task<List<Article>> GetArticlesByTagId(int Id);
         void SetArticle (Article article);
         Task DeleteArticle (Article article);

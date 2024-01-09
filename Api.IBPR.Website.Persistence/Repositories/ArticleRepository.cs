@@ -13,9 +13,10 @@ namespace Api.IBPR.Website.Persistence.Repositories
     public class ArticleRepository : IArticle
     {
         private readonly AppDbContext _context;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public ArticleRepository(AppDbContext context) => 
-            _context = context;
+        public ArticleRepository(AppDbContext context, IUnitOfWork unitOfWork) => 
+            (_context, _unitOfWork) = (context, unitOfWork);
         
 
         public Task DeleteArticle(Article article)
@@ -38,14 +39,15 @@ namespace Api.IBPR.Website.Persistence.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<List<Article>> GetRecentsArticles()
+        public async Task<List<Article>> GetRecentsArticles(int amount)
         {
-            throw new NotImplementedException();
+            return await _context.Article.Take(amount).OrderByDescending(x => x.CreateAt).ToListAsync();
         }
 
         public void SetArticle(Article article)
         {
-            throw new NotImplementedException();
+            _context.Article.Add(article);
+            _unitOfWork.Save();
         }
 
         public Task UpdateArticle(Article article)

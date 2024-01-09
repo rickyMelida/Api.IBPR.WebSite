@@ -24,7 +24,7 @@ public class ArticleController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<List<Article>>> GetById(int id)
+    public async Task<ActionResult<Article>> GetById(int id)
     {
         var result = await _articleRepository.GetArticle(id);
         
@@ -34,5 +34,20 @@ public class ArticleController : ControllerBase
         }
 
         return Ok(result);
+    }
+
+    [HttpPost("SetArticle")]
+    public async Task<ActionResult> SetArticle(Article article)
+    {
+        try
+        {
+            _articleRepository.SetArticle(article);
+
+            return CreatedAtAction("Created new Article", article);
+
+        }catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 }
