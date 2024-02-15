@@ -44,10 +44,10 @@ namespace Api.IBPR.Website.Persistence.Repositories
             return await _context.Article.Take(amount).OrderByDescending(x => x.CreateAt).ToListAsync();
         }
 
-        public void SetArticle(Article article)
+        public async Task SetArticle(Article article)
         {
-            _context.Article.Add(article);
-            _unitOfWork.Save();
+            await _context.Article.AddAsync(article);
+            await _unitOfWork.Save();
         }
 
         public async Task<Article> UpdateArticle(int id, Article articleModified)
@@ -61,8 +61,8 @@ namespace Api.IBPR.Website.Persistence.Repositories
             article.Title = articleModified.Title.Trim();
             article.Author = articleModified.Author;
             article.Text = articleModified.Text;
-            article.UrlImage = articleModified.UrlImage;
-            article.Verse = articleModified.Verse;
+            article.IdImage = articleModified.IdImage;
+            article.IdVerse = articleModified.IdVerse;
 
             await _unitOfWork.Save();
 

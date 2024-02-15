@@ -41,7 +41,7 @@ public class ArticleController : ControllerBase
     {
         try
         {
-            _articleRepository.SetArticle(article);
+            await _articleRepository.SetArticle(article);
 
             return CreatedAtAction("Created new Article", article);
 
@@ -55,7 +55,7 @@ public class ArticleController : ControllerBase
     [Route("{id}")]
     public async Task<ActionResult> UpdateArticle([FromRoute] int id, Article article)
     {
-        var articleModified = _articleRepository.UpdateArticle(id, article);
+        var articleModified = await _articleRepository.UpdateArticle(id, article);
 
         if (articleModified == null)
             return NotFound();

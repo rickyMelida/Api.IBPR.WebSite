@@ -14,6 +14,7 @@ namespace Api.IBPR.Website.Persistence.Context
         {
         }
         public DbSet<Article> Article {get; set;}
+        public DbSet<Tag> Tag { get; set;}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -27,10 +28,18 @@ namespace Api.IBPR.Website.Persistence.Context
                 entity.Property(e => e.Author).HasColumnName("AUTHOR");
                 entity.Property(e => e.Text).HasColumnName("TEXT");
                 entity.Property(e => e.Title).HasColumnName("TITLE");
-                entity.Property(e => e.UrlImage).HasColumnName("URL_IMAGE");
-                entity.Property(e => e.Verse).HasColumnName("VERSE");
+                entity.Property(e => e.IdImage).HasColumnName("ID_IMAGE");
+                entity.Property(e => e.IdVerse).HasColumnName("ID_VERSE");
                 entity.Property(e => e.CreateAt).HasColumnName("CREATED_AT");
                 entity.Property(e => e.IdComment).HasColumnName("ID_COMMENT");
+            });
+
+            modelBuilder.Entity<Tag>(entity =>
+            {
+                entity.ToTable("TAGS", "WEBSITE");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+                entity.Property(e => e.Name).HasColumnName("TAG_NAME");
             });
         }
     }

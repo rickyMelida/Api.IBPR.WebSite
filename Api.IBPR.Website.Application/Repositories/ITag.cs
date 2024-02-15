@@ -11,7 +11,7 @@ namespace Api.IBPR.Website.Application.Repositories
         Task<Tag> GetTag (int Id);
         Task<List<Tag>> GetTags();
         Task<List<Tag>> GetTagsByIdArticle(int Id);
-        Task<Tag> SetTag (Tag tag);
+        Task SetTag (Tag tag);
         Task DeleteTag (Tag tag);
         Task UpdateTag (Tag tag);
     }

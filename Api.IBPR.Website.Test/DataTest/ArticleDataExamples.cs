@@ -19,8 +19,8 @@ namespace Api.IBPR.Website.Test.DataTest
                 CreateAt = DateTime.Now,
                 Text = Encoding.UTF8.GetBytes(text),
                 Title = "A Life with porpuse",
-                UrlImage = "myImageUrl.jpg",
-                Verse = "Jhon 3:16",
+                IdImage = 2,
+                IdVerse = 3,
                 IdComment = 123
             };
         }

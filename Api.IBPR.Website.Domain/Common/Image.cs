@@ -9,6 +9,6 @@ namespace Api.IBPR.Website.Domain.Common
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string UrlImage {get; set;}
+        public byte[] Picture {get; set;}
     }
 }
