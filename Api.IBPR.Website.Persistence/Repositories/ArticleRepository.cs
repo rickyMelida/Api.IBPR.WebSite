@@ -50,9 +50,23 @@ namespace Api.IBPR.Website.Persistence.Repositories
             _unitOfWork.Save();
         }
 
-        public Task UpdateArticle(Article article)
+        public async Task<Article> UpdateArticle(int id, Article articleModified)
         {
-            throw new NotImplementedException();
+            var article = await GetArticle(id);
+
+            if (article == null)
+                return null;
+
+            article.Title = articleModified.Title;
+            article.Title = articleModified.Title.Trim();
+            article.Author = articleModified.Author;
+            article.Text = articleModified.Text;
+            article.UrlImage = articleModified.UrlImage;
+            article.Verse = articleModified.Verse;
+
+            await _unitOfWork.Save();
+
+            return article;
         }
     }
 }

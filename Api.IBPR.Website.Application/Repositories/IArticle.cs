@@ -14,6 +14,6 @@ namespace Api.IBPR.Website.Application.Repositories
         Task<List<Article>> GetArticlesByTagId(int Id);
         void SetArticle (Article article);
         Task DeleteArticle (Article article);
-        Task UpdateArticle (Article article);
+        Task<Article> UpdateArticle (int id, Article article);
     }
 }

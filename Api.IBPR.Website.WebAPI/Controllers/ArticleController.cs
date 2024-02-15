@@ -50,4 +50,16 @@ public class ArticleController : ControllerBase
             return BadRequest(ex.Message);
         }
     }
+
+    [HttpPut]
+    [Route("{id}")]
+    public async Task<ActionResult> UpdateArticle([FromRoute] int id, Article article)
+    {
+        var articleModified = _articleRepository.UpdateArticle(id, article);
+
+        if (articleModified == null)
+            return NotFound();
+
+        return Ok(articleModified);
+    }
 }
