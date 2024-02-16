@@ -17,6 +17,7 @@ namespace Api.IBPR.Website.Persistence
             //services.AddDbContext<DbContext>(opt => opt.UseNpgsql(connectionString));
             services.AddDbContext<AppDbContext>(opt => opt.UseOracle(oracleConnectionString));
             services.AddScoped<IArticle, ArticleRepository>();
+            services.AddScoped<ITag, TagRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             return services;

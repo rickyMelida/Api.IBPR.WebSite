@@ -2,11 +2,6 @@
 using Api.IBPR.Website.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Api.IBPR.Website.Persistence.Context;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Api.IBPR.Website.Persistence.Repositories
 {
