@@ -8,12 +8,12 @@ namespace Api.IBPR.Website.Persistence.ContextConfiguration
     {
         public void Configure(EntityTypeBuilder<Verse> builder)
         {
-            builder.ToTable("VERSES", "WEBSITE");
+            builder.ToTable("verses", "website");
 
-            builder.Property(e => e.Id).HasColumnName("ID");
-            builder.Property(e => e.Text).HasColumnName("TEXT");
-            builder.Property(e => e.Chapter).HasColumnName("CHAPTER");
-            builder.Property(e => e.Versse).HasColumnName("VERSE");
+            builder.Property(e => e.Id).HasColumnName("id");
+            builder.Property(e => e.Text).HasColumnName("text");
+            builder.Property(e => e.Chapter).HasColumnName("chapter");
+            builder.Property(e => e.Versse).HasColumnName("verse");
         }
     }
 }

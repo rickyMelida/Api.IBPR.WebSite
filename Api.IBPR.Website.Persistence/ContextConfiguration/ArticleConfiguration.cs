@@ -8,16 +8,16 @@ namespace Api.IBPR.Website.Persistence.ContextConfiguration
     {
         public void Configure(EntityTypeBuilder<Article> builder)
         {
-            builder.ToTable("ARTICLES", "WEBSITE");
+            builder.ToTable("articles", "website");
 
-            builder.Property(e => e.Id).HasColumnName("ID");
-            builder.Property(e => e.Author).HasColumnName("AUTHOR");
-            builder.Property(e => e.Text).HasColumnName("TEXT");
-            builder.Property(e => e.Title).HasColumnName("TITLE");
-            builder.Property(e => e.IdImage).HasColumnName("ID_IMAGE");
-            builder.Property(e => e.IdVerse).HasColumnName("ID_VERSE");
-            builder.Property(e => e.CreateAt).HasColumnName("CREATED_AT");
-            builder.Property(e => e.IdComment).HasColumnName("ID_COMMENT");
+            builder.Property(e => e.Id).HasColumnName("id");
+            builder.Property(e => e.Author).HasColumnName("author");
+            builder.Property(e => e.Text).HasColumnName("text");
+            builder.Property(e => e.Title).HasColumnName("title");
+            builder.Property(e => e.IdImage).HasColumnName("id_image");
+            builder.Property(e => e.IdVerse).HasColumnName("id_verse");
+            builder.Property(e => e.CreateAt).HasColumnName("created_at");
+            builder.Property(e => e.IdComment).HasColumnName("id_comment");
         }
     }
 

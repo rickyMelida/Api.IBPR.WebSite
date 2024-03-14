@@ -8,10 +8,10 @@ namespace Api.IBPR.Website.Persistence.ContextConfiguration
     {
         public void Configure(EntityTypeBuilder<Tag> builder)
         {
-            builder.ToTable("TAGS", "WEBSITE");
+            builder.ToTable("tags", "website");
 
-            builder.Property(e => e.Id).HasColumnName("ID");
-            builder.Property(e => e.Name).HasColumnName("TAG_NAME");
+            builder.Property(e => e.Id).HasColumnName("id");
+            builder.Property(e => e.Name).HasColumnName("name");
         }
     }
 }

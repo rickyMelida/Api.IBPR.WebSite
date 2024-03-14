@@ -14,11 +14,13 @@ namespace Api.IBPR.Website.Persistence
             var connectionString = configuration.GetConnectionString("PostgresConnection");
             var oracleConnectionString = configuration.GetConnectionString("OracleConnection");
             
-            //services.AddDbContext<DbContext>(opt => opt.UseNpgsql(connectionString));
-            services.AddDbContext<AppDbContext>(opt => opt.UseOracle(oracleConnectionString));
+            services.AddDbContext<AppDbContext>(opt => opt.UseNpgsql(connectionString));
+            //services.AddDbContext<AppDbContext>(opt => opt.UseOracle(oracleConnectionString));
             services.AddScoped<IArticle, ArticleRepository>();
             services.AddScoped<ITag, TagRepository>();
+            services.AddScoped<ICoverImage, CoverImageRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            
 
             return services;
         }
