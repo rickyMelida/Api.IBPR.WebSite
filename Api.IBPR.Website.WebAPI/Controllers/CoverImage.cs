@@ -16,7 +16,7 @@ namespace Api.IBPR.Website.WebAPI.Controllers
             _coverImageRepository = coverImageRepository;
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Image>> Get(int id)
+        public async Task<ActionResult<Image>> GetById(int id)
         {
             var result = await _coverImageRepository.GetCoverImage(id);
 
@@ -24,6 +24,12 @@ namespace Api.IBPR.Website.WebAPI.Controllers
                 return NotFound();
 
             return Ok(result);
+        }
+
+        [HttpPost("SetCoverImage")]
+        public async Task<ActionResult> SetCoverImage()
+        {
+            return Ok("Upload a new Cover Image" );
         }
     }
 }

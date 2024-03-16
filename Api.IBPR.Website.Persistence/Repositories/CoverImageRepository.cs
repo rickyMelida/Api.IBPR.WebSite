@@ -34,9 +34,12 @@ namespace Api.IBPR.Website.Persistence.Repositories
             return result;
         }
 
-        public Task<CoverImages> SetCoverImage(CoverImages coverImage)
+        public async Task<Image> SetCoverImage(Image coverImage)
         {
-            throw new NotImplementedException();
+            await _context.Image.AddAsync(coverImage);
+            await _unitOfWork.Save();
+
+            return coverImage;
         }
     }
 }
