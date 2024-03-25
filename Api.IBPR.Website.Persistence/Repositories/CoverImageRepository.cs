@@ -18,20 +18,9 @@ namespace Api.IBPR.Website.Persistence.Repositories
         public CoverImageRepository(AppDbContext context, IUnitOfWork unitOfWork) =>
             (_context, _unitOfWork) = (context, unitOfWork);
 
-        public async Task<IEnumerable<Image>> GetCoverImage(int id)
+        public async Task<IEnumerable<CoverImages>> GetCoverImage()
         {
-            var result = await (from a in _context.Image
-                                join b in _context.CoverImage
-                                on a.Id equals b.Id
-                                where a.Id == id
-                                select new Image
-                                {
-                                    Id = a.Id,
-                                    Name = a.Name,
-                                    Picture = a.Picture
-                                }).ToListAsync();
-
-            return result;
+            return await _context.CoverImage.ToListAsync();
         }
 
         public async Task<Image> SetCoverImage(Image coverImage)

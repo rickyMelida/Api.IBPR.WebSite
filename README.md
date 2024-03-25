@@ -30,6 +30,7 @@ API created to used at the main website IBPR(Iglesia Bautista Panambireta)
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
 | `None` | `-` | No Parameters |
+| `id` | `integer` | Article id to get just one |
 
 
 
