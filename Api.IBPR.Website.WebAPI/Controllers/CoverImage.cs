@@ -18,7 +18,7 @@ namespace Api.IBPR.Website.WebAPI.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Image>> GetById(int id)
         {
-            var result = await _coverImageRepository.GetCoverImage(id);
+            var result = await _coverImageRepository.GetCoverImage();
 
             if(result == null)
                 return NotFound();

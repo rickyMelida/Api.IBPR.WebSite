@@ -12,12 +12,6 @@ namespace Api.IBPR.Website.Persistence.Repositories
 
         public VerseRepository(AppDbContext context, IUnitOfWork unitOfWork) =>
             (_context, _unitOfWork) = (context, unitOfWork);
-        
-
-        public async Task<Verse> GetVerse(int id)
-        {
-            return await _context.Verse.FirstOrDefaultAsync(e => e.Id == id);
-        }
 
         public async Task<List<Verse>> GetVerses()
         {

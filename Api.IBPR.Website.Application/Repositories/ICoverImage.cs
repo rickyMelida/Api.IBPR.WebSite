@@ -9,7 +9,7 @@ namespace Api.IBPR.Website.Application.Repositories
 {
     public interface ICoverImage
     {
-        Task<IEnumerable<Image>> GetCoverImage(int id);
+        Task<IEnumerable<CoverImages>> GetCoverImage();
         Task<Image> SetCoverImage(Image coverImage);
 
     }

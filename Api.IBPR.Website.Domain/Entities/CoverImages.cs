@@ -9,8 +9,7 @@ namespace Api.IBPR.Website.Domain.Entities
     public class CoverImages
     {
         public int Id { get; set; }
-        public int Counseling { get; set; }
-        public int Main { get; set; }
-        public int Prayer { get; set; }
+        public int Section { get; set; }
+        public int Image { get; set; }
     }
 }

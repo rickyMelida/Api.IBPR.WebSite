@@ -11,6 +11,7 @@ namespace Api.IBPR.Website.Persistence.ContextConfiguration
             builder.ToTable("verses", "website");
 
             builder.Property(e => e.Id).HasColumnName("id");
+            builder.Property(e => e.Book).HasColumnName("book");
             builder.Property(e => e.Text).HasColumnName("text");
             builder.Property(e => e.Chapter).HasColumnName("chapter");
             builder.Property(e => e.Versse).HasColumnName("verse");
