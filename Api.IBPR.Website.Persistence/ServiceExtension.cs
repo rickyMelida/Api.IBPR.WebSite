@@ -15,7 +15,9 @@ namespace Api.IBPR.Website.Persistence
             var oracleConnectionString = configuration.GetConnectionString("OracleConnection");
             
             services.AddDbContext<AppDbContext>(opt => opt.UseNpgsql(connectionString));
-            //services.AddDbContext<AppDbContext>(opt => opt.UseOracle(oracleConnectionString));
+            services.AddScoped<IVerse, VerseRepository>();
+            services.AddScoped<ISection, SectionRepository>();
+            services.AddScoped<IMainVerse, MainVerseRepository>();
             services.AddScoped<IArticle, ArticleRepository>();
             services.AddScoped<ITag, TagRepository>();
             services.AddScoped<ICoverImage, CoverImageRepository>();

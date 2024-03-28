@@ -1,4 +1,6 @@
 ﻿using System.Reflection;
+using Api.IBPR.Website.Application.Interfaces;
+using Api.IBPR.Website.Application.Services;
 using AutoMapper;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
@@ -9,8 +11,7 @@ namespace Api.IBPR.Website.Application
     {
         public static void ConfigureApplication(this IServiceCollection services)
         {
-            services.AddAutoMapper(Assembly.GetExecutingAssembly());
-            services.AddMediatR(Assembly.GetExecutingAssembly());
+            services.AddScoped<IVerseServices, VerseService>();
         }
     }
 }

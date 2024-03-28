@@ -11,7 +11,7 @@ namespace Api.IBPR.Website.Application.Repositories
         Task<Comment> GetComment (int Id);
         Task<List<Comment>> GetCommentsByArticleId(int Id);
         Task<Comment> SetComment (Comment comment);
+        Task<Comment> UpdateComment (Comment comment);
         Task DeleteComment (Comment comment);
-        Task UpdateComment (Comment comment);
     }
 }

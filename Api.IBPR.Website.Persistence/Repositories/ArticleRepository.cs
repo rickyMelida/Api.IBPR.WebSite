@@ -39,10 +39,12 @@ namespace Api.IBPR.Website.Persistence.Repositories
             return await _context.Article.Take(amount).OrderByDescending(x => x.CreateAt).ToListAsync();
         }
 
-        public async Task SetArticle(Article article)
+        public async Task<Article> SetArticle(Article article)
         {
             await _context.Article.AddAsync(article);
             await _unitOfWork.Save();
+
+            return article;
         }
 
         public async Task<Article> UpdateArticle(int id, Article articleModified)

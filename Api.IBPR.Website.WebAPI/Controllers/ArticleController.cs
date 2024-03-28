@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Api.IBPR.Website.WebAPI.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class ArticleController : ControllerBase
 {
     private readonly IArticle _articleRepository;

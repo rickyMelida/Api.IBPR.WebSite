@@ -3,7 +3,7 @@
     public class MainVerse
     {
         public int Id { get; set; }
-        public string Section { get; set; }
+        public int Section { get; set; }
         public int IdVerse { get; set; }
     }
 }
