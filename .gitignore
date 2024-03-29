@@ -130,16 +130,20 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
-Api.IBPR.Website.Application/obj/Api.IBPR.Website.Application.csproj.nuget.dgspec.json
-*.json
-Api.IBPR.Website.Application/obj/Api.IBPR.Website.Application.csproj.nuget.dgspec.json
-*.json
-Api.IBPR.Website.Application/obj/project.assets.json
-Api.IBPR.Website.WebAPI/obj/staticwebassets.pack.sentinel
-Api.IBPR.Website.WebAPI/obj/project.nuget.cache
-Api.IBPR.Website.WebAPI/obj/Debug/net6.0/ref/Api.IBPR.Website.WebAPI.dll
-Api.IBPR.Website.Domain/obj/project.nuget.cache
 
+# obj folder
+Api.IBPR.Website.Application/obj/
+Api.IBPR.Website.WebAPI/obj/
+Api.IBPR.Website.Domain/obj/
+Api.IBPR.Website.Persistence/obj/
+Api.IBPR.Website.Test/obj/
+
+# Bin folder
+Api.IBPR.Website.Application/bin/
+Api.IBPR.Website.WebAPI/bin/
+Api.IBPR.Website.Domain/bin/
+Api.IBPR.Website.Persistence/bin/
+Api.IBPR.Website.Test/bin/
 
 #others
 dataEXamples
