@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Api.IBPR.Website.WebAPI\Api.IBPR.Website.WebAPI.csproj" />
+    <ProjectReference Include="..\Api.IBPR.Website.Application\Api.IBPR.Website.Application.csproj" />
   </ItemGroup>
 
 </Project>

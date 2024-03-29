@@ -32,5 +32,15 @@ API created to used at the main website IBPR(Iglesia Bautista Panambireta)
 | `None` | `-` | No Parameters |
 | `id` | `integer` | Article id to get just one |
 
+#### Get header verses
+
+```http
+  GET /api/GetHeaderVerses
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `None` | `-` | No Parameters |
+
 
 

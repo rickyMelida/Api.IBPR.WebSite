@@ -14,7 +14,7 @@ namespace Api.IBPR.Website.WebAPI.Controllers
         public VerseController(IVerseServices verseServices) =>
             _verseService = verseServices;
 
-        [HttpGet("GetHeaderVerse")]
+        [HttpGet("GetHeaderVerses")]
         public async Task<IActionResult> GetHeaderVerse()
         {
             try
