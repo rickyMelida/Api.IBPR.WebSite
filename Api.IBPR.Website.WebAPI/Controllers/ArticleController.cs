@@ -23,7 +23,7 @@ public class ArticleController : ControllerBase
         return Ok(result);
     }
 
-    [HttpGet("{id}")]
+    [HttpGet("GetArticle/{id}")]
     public async Task<ActionResult<Article>> GetById(int id)
     {
         var result = await _articleRepository.GetArticle(id);

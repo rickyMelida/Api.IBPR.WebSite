@@ -1,13 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Api.IBPR.Website.Application.Interfaces;
 using Api.IBPR.Website.Application.Repositories;
 using Api.IBPR.Website.Domain.Entities;
+using Api.IBPR.Website.Domain.Exceptions;
 
 namespace Api.IBPR.Website.Application.Services
 {
-    public class ArticleService
+    public class ArticleService: IArticleServices
     {
         private readonly IArticle _articleRepository;
         public ArticleService(IArticle articleRepository) => 
@@ -18,10 +16,26 @@ namespace Api.IBPR.Website.Application.Services
             var articleResult = await _articleRepository.GetArticle(id);
             
             if (articleResult is null)
-                return new Article(){};
+                throw new ArticleException();
 
             return articleResult;
         }
+
+        public Task<List<BlogArticle>> GetBlogArticles()
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<BlogArticle> SetBlogArticle(BlogArticle blogArticle)
+        {
+            //Article newArticle = blogArticle;
+
+            //await _articleRepository.SetArticle(newArticle);
+
+            throw new NotImplementedException();
+        }
+
+
         
     }
 }

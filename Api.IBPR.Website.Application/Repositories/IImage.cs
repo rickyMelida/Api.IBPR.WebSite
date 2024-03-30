@@ -9,8 +9,9 @@ namespace Api.IBPR.Website.Application.Repositories
     public interface IImage
     {
         Task<Image> Get(int id);
-        Task<Image> Set(Image image);
-        Task<Image> Update(Image image);
+        Task<List<Image>> GetImages();
+        Task SetImage(Image image);
+        Task<Image> Update(int id, Image imageModified);
         Task<bool> Delete(int id);
     }
 }

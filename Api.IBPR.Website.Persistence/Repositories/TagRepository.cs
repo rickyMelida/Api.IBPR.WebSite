@@ -1,12 +1,8 @@
 ﻿using Api.IBPR.Website.Application.Repositories;
 using Api.IBPR.Website.Domain.Entities;
+using Api.IBPR.Website.Domain.Exceptions;
 using Api.IBPR.Website.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Api.IBPR.Website.Persistence.Repositories
 {
@@ -18,19 +14,37 @@ namespace Api.IBPR.Website.Persistence.Repositories
         public TagRepository(AppDbContext context, IUnitOfWork unitOfWork) =>
             (_context, _unitOfWork) = (context, unitOfWork);
 
-        public Task DeleteTag(Tag tag)
+        public async Task<bool> DeleteTag(int id)
         {
-            throw new NotImplementedException();
+            var tagToDelete = await _context.Tag.SingleOrDefaultAsync(e => e.Id == id);
+
+            if (tagToDelete == null)
+                return false;
+
+            _context.Tag.Remove(tagToDelete);
+            await _unitOfWork.Save();
+
+            return false;
         }
 
         public async Task<Tag> GetTag(int id)
         {
-            return await _context.Tag.FirstOrDefaultAsync(x => x.Id == id);
+            var tag = await _context.Tag.SingleOrDefaultAsync(x => x.Id == id);
+
+            if (tag == null)
+                throw new TagException();
+
+            return tag;
         }
 
         public async Task<List<Tag>> GetTags()
         {
-            return await _context.Tag.ToListAsync();
+            var tags = await _context.Tag.ToListAsync();
+            
+            if(tags == null)
+                throw new TagException("No existe aun ningun Tag Creado");
+            
+            return tags;
         }
 
         public Task<List<Tag>> GetTagsByIdArticle(int id)
@@ -44,9 +58,17 @@ namespace Api.IBPR.Website.Persistence.Repositories
             await _unitOfWork.Save();
         }
 
-        public Task UpdateTag(Tag tag)
+        public async Task<Tag> UpdateTag(int id, Tag tagModified)
         {
-            throw new NotImplementedException();
+            var tagToModified = await _context.Tag.SingleOrDefaultAsync(e => e.Id == id);
+
+            if (tagToModified == null)
+                throw new TagException();
+
+            tagToModified.Name = tagModified.Name;
+            await _unitOfWork.Save();
+
+            return tagModified;
         }
     }
 }

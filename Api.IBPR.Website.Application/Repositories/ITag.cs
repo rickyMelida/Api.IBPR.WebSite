@@ -12,7 +12,7 @@ namespace Api.IBPR.Website.Application.Repositories
         Task<List<Tag>> GetTags();
         Task<List<Tag>> GetTagsByIdArticle(int Id);
         Task SetTag (Tag tag);
-        Task DeleteTag (Tag tag);
-        Task UpdateTag (Tag tag);
+        Task<bool> DeleteTag (int id);
+        Task<Tag> UpdateTag(int id, Tag tagModified);
     }
 }
