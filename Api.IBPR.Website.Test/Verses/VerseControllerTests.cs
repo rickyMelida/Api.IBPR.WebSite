@@ -27,7 +27,7 @@ namespace Api.IBPR.Website.Test.Verses
         }
 
         [Test]
-        [Ignore("This is ignore because don't make")]
+        [Ignore("This is ignore because it doesn't work")]
         public async Task GetHaederVerses_Should_Return_List_Header_Verses()
         {
             // Arrange
