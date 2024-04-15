@@ -1,35 +1,36 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Api.IBPR.Website.Domain.Entities;
-using Api.IBPR.Website.Application.Repositories;
-using Api.IBPR.Website.Domain.Common;
+using Api.IBPR.Website.Application.Interfaces;
+using Api.IBPR.Website.Domain.Exceptions;
 
 namespace Api.IBPR.Website.WebAPI.Controllers
 {
-    public class CoverImage: ControllerBase
+    public class CoverImage : ControllerBase
     {
-        private readonly ICoverImage _coverImageRepository;
-        public CoverImage(ICoverImage coverImageRepository) => 
-            _coverImageRepository = coverImageRepository;
+        private readonly ICoverImagesService _coverImagesService;
+        public CoverImage(ICoverImagesService coverImagesService) =>
+            _coverImagesService = coverImagesService;
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Image>> GetById(int id)
+        [HttpGet("GetCoverImages")]
+        public async Task<IActionResult> GetCoverImages()
         {
-            var result = await _coverImageRepository.GetCoverImage();
+            try
+            {
+                var coverImages = await _coverImagesService.GetCoverImages();
 
-            if(result == null)
-                return NotFound();
+                if (coverImages == null)
+                    return NotFound();
 
-            return Ok(result);
+                return Ok(coverImages);
+            }
+            catch (CoverImageException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch
+            {
+                return BadRequest();
+            }
         }
 
-        [HttpPost("SetCoverImage")]
-        public async Task<ActionResult> SetCoverImage()
-        {
-            return Ok("Upload a new Cover Image" );
-        }
     }
 }

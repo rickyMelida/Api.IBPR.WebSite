@@ -12,6 +12,7 @@ namespace Api.IBPR.Website.Application
         public static void ConfigureApplication(this IServiceCollection services)
         {
             services.AddScoped<IVerseServices, VerseService>();
+            services.AddScoped<ICoverImagesService, CoverImagesService>();
         }
     }
 }

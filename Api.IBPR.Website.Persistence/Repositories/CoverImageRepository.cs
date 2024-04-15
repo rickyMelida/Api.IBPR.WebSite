@@ -18,7 +18,7 @@ namespace Api.IBPR.Website.Persistence.Repositories
         public CoverImageRepository(AppDbContext context, IUnitOfWork unitOfWork) =>
             (_context, _unitOfWork) = (context, unitOfWork);
 
-        public async Task<IEnumerable<CoverImages>> GetCoverImage()
+        public async Task<List<CoverImages>> GetCoverImage()
         {
             return await _context.CoverImage.ToListAsync();
         }

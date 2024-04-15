@@ -19,12 +19,12 @@ namespace Api.IBPR.Website.WebAPI.Controllers
         {
             try
             {
-                var result = await _verseService.GetMainVerses();
+                var verses = await _verseService.GetMainVerses();
 
-                if(result == null)
+                if(verses == null)
                     return NotFound();
 
-                return Ok(result);
+                return Ok(verses);
             }
             catch(VersesExceptions ex)
             {

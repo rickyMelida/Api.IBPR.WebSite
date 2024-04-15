@@ -20,6 +20,7 @@ namespace Api.IBPR.Website.Persistence
             services.AddScoped<IMainVerse, MainVerseRepository>();
             services.AddScoped<IArticle, ArticleRepository>();
             services.AddScoped<ITag, TagRepository>();
+            services.AddScoped<IImage, ImageRepository>();
             services.AddScoped<ICoverImage, CoverImageRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             
