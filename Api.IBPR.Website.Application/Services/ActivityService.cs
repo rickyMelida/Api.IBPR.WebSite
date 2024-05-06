@@ -38,7 +38,7 @@ namespace Api.IBPR.Website.Application.Services
             return result;
         }
 
-        public Task<ActivityDetails> GetActivityById(string activityId)
+        public Task<ActivityDetails> GetActivityById(int activityId)
         {
             throw new NotImplementedException();
         }

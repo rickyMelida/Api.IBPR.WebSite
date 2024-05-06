@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Api.IBPR.Website.Application.Repositories;
 using Api.IBPR.Website.Domain.Entities;
 using Api.IBPR.Website.Persistence.Context;

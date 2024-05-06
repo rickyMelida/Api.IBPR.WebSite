@@ -4,7 +4,7 @@ namespace Api.IBPR.Website.Application.Interfaces
 {
     public interface IActivityServices
     {
-        Task<ActivityDetails> GetActivityById(string activityId);
+        Task<ActivityDetails> GetActivityById(int activityId);
         Task<List<ActivityDetails>> GetActivities();
 
     }

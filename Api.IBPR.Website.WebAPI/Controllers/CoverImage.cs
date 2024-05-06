@@ -4,6 +4,8 @@ using Api.IBPR.Website.Domain.Exceptions;
 
 namespace Api.IBPR.Website.WebAPI.Controllers
 {
+    [ApiController]
+    [Route("api/[controller]")]
     public class CoverImage : ControllerBase
     {
         private readonly ICoverImagesService _coverImagesService;

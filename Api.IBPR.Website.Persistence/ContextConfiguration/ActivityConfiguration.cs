@@ -13,7 +13,7 @@ namespace Api.IBPR.Website.Persistence.ContextConfiguration
 
             builder.Property(e => e.Id).HasColumnName("id");
             builder.Property(e => e.Name).HasColumnName("name");
-            builder.Property(e => e.Description).HasColumnName("description");
+            builder.Property(e => e.Description).HasColumnName("desciption");
             builder.Property(e => e.DateActivity).HasColumnName("_date");
             builder.Property(e => e.Ubication).HasColumnName("ubication");
             builder.Property(e => e.IdImage).HasColumnName("id_image");

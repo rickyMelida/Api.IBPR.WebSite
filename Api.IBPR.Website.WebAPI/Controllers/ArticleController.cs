@@ -1,8 +1,6 @@
 using Api.IBPR.Website.Domain.Entities;
 using Api.IBPR.Website.Application.Repositories;
 using Microsoft.AspNetCore.Mvc;
-using Api.IBPR.Website.Persistence.Context;
-using Microsoft.EntityFrameworkCore;
 
 namespace Api.IBPR.Website.WebAPI.Controllers;
 
