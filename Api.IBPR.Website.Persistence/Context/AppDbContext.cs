@@ -18,6 +18,8 @@ namespace Api.IBPR.Website.Persistence.Context
         public DbSet<Image> Image { get; set; }
         public DbSet<Sections> Section { get; set; }
         public DbSet<MainVerse> MainVerses { get; set; }
+        public DbSet<Activity> Activity{ get; set; }
+        public DbSet<Ubication> Ubication { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -30,6 +32,8 @@ namespace Api.IBPR.Website.Persistence.Context
             modelBuilder.ApplyConfiguration(new CoverImageConfiguration());
             modelBuilder.ApplyConfiguration(new SectionConfiguration());
             modelBuilder.ApplyConfiguration(new MainVerseConfiguration());
+            modelBuilder.ApplyConfiguration(new ActivityConfiguration());
+            modelBuilder.ApplyConfiguration(new UbicationConfiguration());
         }
     }
 }

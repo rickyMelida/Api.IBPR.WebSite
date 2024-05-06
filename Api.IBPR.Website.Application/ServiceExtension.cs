@@ -13,6 +13,7 @@ namespace Api.IBPR.Website.Application
         {
             services.AddScoped<IVerseServices, VerseService>();
             services.AddScoped<ICoverImagesService, CoverImagesService>();
+            services.AddScoped<IActivityServices, ActivityService>();
         }
     }
 }
