@@ -1,15 +1,16 @@
 using Microsoft.AspNetCore.Mvc;
 using Api.IBPR.Website.Application.Interfaces;
 using Api.IBPR.Website.Domain.Exceptions;
+using Api.IBPR.Website.Domain.Entities;
 
 namespace Api.IBPR.Website.WebAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class CoverImage : ControllerBase
+    public class CoverImageController : ControllerBase
     {
         private readonly ICoverImagesService _coverImagesService;
-        public CoverImage(ICoverImagesService coverImagesService) =>
+        public CoverImageController(ICoverImagesService coverImagesService) =>
             _coverImagesService = coverImagesService;
 
         [HttpGet("GetCoverImages")]
@@ -25,6 +26,32 @@ namespace Api.IBPR.Website.WebAPI.Controllers
                 return Ok(coverImages);
             }
             catch (CoverImageException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch
+            {
+                return BadRequest();
+            }
+        }
+
+        [HttpPost("SetCoverImages")]
+        public async Task<IActionResult> SetCoverImage(CoverImagesDetails coverImagesDetails)
+        {
+            try
+            {
+                var coverImages = await _coverImagesService.SetCoverImages(coverImagesDetails);
+
+                if(coverImages != coverImagesDetails) 
+                    return BadRequest();
+
+                if(coverImages == null)
+                    return NotFound();
+
+                return Ok(coverImages);
+
+            }
+            catch(CoverImageException ex)
             {
                 return NotFound(ex.Message);
             }

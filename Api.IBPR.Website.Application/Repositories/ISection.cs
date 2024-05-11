@@ -10,6 +10,7 @@ namespace Api.IBPR.Website.Application.Repositories
     {
         Task<List<Sections>> GetSections();
         Task<Sections> GetSection(int id);
+        Task<int> GetSectionId(string sectionName);
         Task SetSection(Sections section);
         Task UpdateSection(int id, Sections sectionModified);
         Task DeleteSection(int id);

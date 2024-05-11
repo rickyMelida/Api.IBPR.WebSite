@@ -6,7 +6,8 @@ namespace Api.IBPR.Website.Application.Repositories
     public interface ICoverImage
     {
         Task<List<CoverImages>> GetCoverImage();
-        Task<Image> SetCoverImage(Image coverImage);
+        Task<CoverImages> SetCoverImage(CoverImages coverImage);
+        Task<int> GetLastIdCoverImage();
 
     }
 }

@@ -53,5 +53,15 @@ namespace Api.IBPR.Website.Persistence.Repositories
                 _context.SaveChanges();
             }    
         }
+
+        public async Task<int> GetSectionId(string sectionName)
+        {
+            var sectionResult = await _context.Section.FirstAsync(x => x.Section == sectionName);
+            
+            if(sectionResult == null)
+                return 0;
+
+            return sectionResult.Id; 
+        }
     }
 }

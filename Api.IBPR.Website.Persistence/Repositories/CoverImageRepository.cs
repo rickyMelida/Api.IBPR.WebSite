@@ -23,12 +23,24 @@ namespace Api.IBPR.Website.Persistence.Repositories
             return await _context.CoverImage.ToListAsync();
         }
 
-        public async Task<Image> SetCoverImage(Image coverImage)
+        public async Task<int> GetLastIdCoverImage()
         {
-            await _context.Image.AddAsync(coverImage);
+            var lasCoverImage = await _context.CoverImage.OrderByDescending(a => a.Id).FirstOrDefaultAsync();
+
+            if(lasCoverImage == null)
+                return 0;
+
+            return lasCoverImage.Id; 
+        }
+
+        public async Task<CoverImages> SetCoverImage(CoverImages coverImage)
+        {
+            await _context.CoverImage.AddAsync(coverImage);
             await _unitOfWork.Save();
 
             return coverImage;
         }
+
+        
     }
 }

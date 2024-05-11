@@ -38,10 +38,12 @@ namespace Api.IBPR.Website.Persistence.Repositories
             return images;
         }
 
-        public async Task SetImage(Image image)
+        public async Task<Image> SetImage(Image image)
         {
             await _context.Image.AddAsync(image);
             await _unitOfWork.Save();
+
+            return  await Get(image.Id);
         }
 
         public async Task<Image> Update(int id, Image imageModified)
@@ -69,6 +71,16 @@ namespace Api.IBPR.Website.Persistence.Repositories
             await _unitOfWork.Save();
 
             return true;
-        }   
+        }
+
+        public async Task<int> GetLastIdImage()
+        {
+            var lastImage = await _context.Image.OrderByDescending(a => a.Id).FirstOrDefaultAsync();
+
+            if(lastImage == null)
+                return 0;
+            
+            return lastImage.Id;
+        }
     }
 }
