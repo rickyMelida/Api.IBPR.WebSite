@@ -8,6 +8,7 @@ API created to used at the main website IBPR(Iglesia Bautista Panambireta)
 
 [Documentation](https://github.com/rickyMelida/Api.IBPR.WebSite)
 
+![example workflow](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
 
 ## API Reference
 
