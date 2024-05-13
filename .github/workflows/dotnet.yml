@@ -3,11 +3,12 @@ name: Api IBPR Website
 
 on:
   push:
-    branches: [ "master" ]
+    branches:
+      - master
+      - test_github_pages
 
 jobs:
-  build:
-    name: Build
+  deploy:
     runs-on: ubuntu-latest
 
     #postgres db
@@ -27,16 +28,30 @@ jobs:
           - 5432:5432
 
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 6.0.x
+        dotnet-version: '6.0.x'
+
     - name: Restore dependencies
       run: dotnet restore
-    - name: Build
-      run: dotnet build
+
+    - name: Build and publish API
+      run: |
+        dotnet build
+        dotnet publish -c Release -o ./publish
+    
     - name: Test
       run: dotnet test
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN  }}
+        publish_dir: ./Api.IBPR.Website.WebAPI/bin/Release/net6.0/publish/
+    
     env:
       DATABASE_DSN: "user=postgres host=localhost password=postgres port=5432 database=postgres sslmode=disable"
