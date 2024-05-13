@@ -4,6 +4,7 @@ using Api.IBPR.Website.Application.Repositories;
 using Api.IBPR.Website.Domain.Common;
 using Api.IBPR.Website.Domain.Entities;
 using Api.IBPR.Website.Domain.Exceptions;
+using Api.IBPR.Website.Domain.Request;
 
 namespace Api.IBPR.Website.Application.Services
 {
@@ -60,14 +61,15 @@ namespace Api.IBPR.Website.Application.Services
             return result;
         }
 
-        public async Task<CoverImagesDetails> SetCoverImages(CoverImagesDetails coverImagesDetails)
+        public async Task<CoverImagesDetails> SetCoverImages(CoverImageRequest coverImagesDetails)
         {
             coverImagesDetails.Id = await _imageRepository.GetLastIdImage();
+            
             var imageadded = await _imageRepository.SetImage(new Image
             {
                 Id = coverImagesDetails.Id + 1,
                 Name = coverImagesDetails.Name,
-                Picture = coverImagesDetails.Picture
+                Picture = Convert.FromBase64String(coverImagesDetails.Picture)
             });
 
             var coverImage = new CoverImages

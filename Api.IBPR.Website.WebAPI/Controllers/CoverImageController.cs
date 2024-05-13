@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Api.IBPR.Website.Application.Interfaces;
 using Api.IBPR.Website.Domain.Exceptions;
 using Api.IBPR.Website.Domain.Entities;
+using Api.IBPR.Website.Domain.Request;
 
 namespace Api.IBPR.Website.WebAPI.Controllers
 {
@@ -36,22 +37,19 @@ namespace Api.IBPR.Website.WebAPI.Controllers
         }
 
         [HttpPost("SetCoverImages")]
-        public async Task<IActionResult> SetCoverImage(CoverImagesDetails coverImagesDetails)
+        public async Task<IActionResult> SetCoverImage(CoverImageRequest coverImagesDetails)
         {
             try
             {
                 var coverImages = await _coverImagesService.SetCoverImages(coverImagesDetails);
 
-                if(coverImages != coverImagesDetails) 
-                    return BadRequest();
-
-                if(coverImages == null)
+                if (coverImages == null)
                     return NotFound();
 
                 return Ok(coverImages);
 
             }
-            catch(CoverImageException ex)
+            catch (CoverImageException ex)
             {
                 return NotFound(ex.Message);
             }
