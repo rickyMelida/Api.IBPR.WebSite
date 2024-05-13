@@ -1,3 +1,4 @@
+![example branch parameter](https://github.com/rickyMelida/Api.IBPR.WebSite/actions/workflows/dotnet.yml/badge.svg?branch=feature-1)
 
 # API IBRP Website
 
@@ -7,8 +8,6 @@ API created to used at the main website IBPR(Iglesia Bautista Panambireta)
 ## Documentation
 
 [Documentation](https://github.com/rickyMelida/Api.IBPR.WebSite)
-
-![example workflow](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
 
 ## API Reference
 
