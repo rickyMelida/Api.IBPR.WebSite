@@ -1,4 +1,5 @@
 using System.Data.Common;
+using System.Text.RegularExpressions;
 using Api.IBPR.Website.Application.Interfaces;
 using Api.IBPR.Website.Application.Repositories;
 using Api.IBPR.Website.Domain.Common;
@@ -64,12 +65,18 @@ namespace Api.IBPR.Website.Application.Services
         public async Task<CoverImagesDetails> SetCoverImages(CoverImageRequest coverImagesDetails)
         {
             coverImagesDetails.Id = await _imageRepository.GetLastIdImage();
+
+            string cleanedPictureString = Regex.Replace(coverImagesDetails.Picture, @"[^A-Za-z0-9+/=]", "");
+            
+            if (cleanedPictureString.Length % 4 != 0)
+                cleanedPictureString = cleanedPictureString.PadRight(cleanedPictureString.Length + (4 - cleanedPictureString.Length % 4), '=');
+            
             
             var imageadded = await _imageRepository.SetImage(new Image
             {
                 Id = coverImagesDetails.Id + 1,
                 Name = coverImagesDetails.Name,
-                Picture = Convert.FromBase64String(coverImagesDetails.Picture)
+                Picture = Convert.FromBase64String(cleanedPictureString)
             });
 
             var coverImage = new CoverImages

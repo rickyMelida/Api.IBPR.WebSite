@@ -53,9 +53,9 @@ namespace Api.IBPR.Website.WebAPI.Controllers
             {
                 return NotFound(ex.Message);
             }
-            catch
+            catch(Exception ex)
             {
-                return BadRequest();
+                return BadRequest(ex.Message);
             }
         }
 
