@@ -25,12 +25,12 @@ namespace Api.IBPR.Website.Persistence.Repositories
 
         public async Task<int> GetLastIdCoverImage()
         {
-            var lasCoverImage = await _context.CoverImage.OrderByDescending(a => a.Id).FirstOrDefaultAsync();
+            var lastCoverImage = await _context.CoverImage.OrderByDescending(a => a.Id).FirstOrDefaultAsync();
 
-            if(lasCoverImage == null)
+            if(lastCoverImage == null)
                 return 0;
 
-            return lasCoverImage.Id; 
+            return lastCoverImage.Id; 
         }
 
         public async Task<CoverImages> SetCoverImage(CoverImages coverImage)

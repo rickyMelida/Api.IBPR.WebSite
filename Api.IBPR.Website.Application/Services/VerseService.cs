@@ -1,5 +1,6 @@
 using Api.IBPR.Website.Application.Interfaces;
 using Api.IBPR.Website.Application.Repositories;
+using Api.IBPR.Website.Domain.Common;
 using Api.IBPR.Website.Domain.Entities;
 using Api.IBPR.Website.Domain.Exceptions;
 
@@ -34,8 +35,43 @@ namespace Api.IBPR.Website.Application.Services
             if (data.Count == 0)
                 throw new VersesExceptions("No se encontraron datos");
 
-
             return data;
+        }
+
+        public async Task<DefaultResponse> SetMainVerses(HeaderVerses headerVerse)
+        {
+            try
+            {
+                int idMainVerse = await _mainVerseRepository.GetLastId() + 1;
+                int idVerse = await _verseRepository.GetLastId() + 1;
+                int sectionId = await _sectionRepository.GetSectionId(headerVerse.Section.Trim());
+
+                MainVerse mainVerse = new MainVerse
+                {
+                    Id = idMainVerse,
+                    Section = sectionId,
+                    IdVerse = idVerse
+                };
+
+                Verse verse = new Verse
+                {
+                    Id = idVerse,
+                    Text = headerVerse.Text,
+                    Book = headerVerse.Book,
+                    Chapter = headerVerse.Chapter,
+                    Versse = headerVerse.Verse
+                };
+
+                await _mainVerseRepository.SetMainVerse(mainVerse);
+                await _verseRepository.SetVerse(verse);
+
+                return new DefaultResponse { Code = 0, Message = "Ok" };
+            }
+            catch (VersesExceptions error)
+            {
+                return new DefaultResponse { Code = 1, Message = error.Message };
+            }
+
         }
     }
 }

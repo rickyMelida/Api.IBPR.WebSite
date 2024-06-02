@@ -9,5 +9,6 @@ namespace Api.IBPR.Website.Application.Repositories
         Task<MainVerse> SetMainVerse(MainVerse mainVerse);
         Task UpdateMainVerse(int id, MainVerse mainVerseUpdate);
         Task DeleteMainVerse(int id);
+        Task<int> GetLastId();
     }
 }

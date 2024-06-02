@@ -38,5 +38,15 @@ namespace Api.IBPR.Website.Persistence.Repositories
         {
             throw new NotImplementedException();
         }
+
+        public async Task<int> GetLastId()
+        {
+            var lastVerse = await _context.Verse.OrderByDescending(a => a.Id).FirstOrDefaultAsync();
+
+            if (lastVerse == null)
+                return 0;
+
+            return lastVerse.Id;
+        }
     }
 }
