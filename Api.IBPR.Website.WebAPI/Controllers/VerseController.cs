@@ -35,5 +35,23 @@ namespace Api.IBPR.Website.WebAPI.Controllers
                 return BadRequest();
             }
         }
+
+        [HttpPost("SetHeaderVerse")]
+        public async Task<IActionResult> SetHeaderVerse(HeaderVerses headerVerses)
+        {
+            try 
+            {
+                var verses = await _verseService.SetMainVerses(headerVerses);
+
+                if(verses.Code == 1) 
+                    return BadRequest(verses.Message);
+
+                return Ok(verses);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }
