@@ -20,6 +20,7 @@ namespace Api.IBPR.Website.Persistence.Context
         public DbSet<MainVerse> MainVerses { get; set; }
         public DbSet<Activity> Activity{ get; set; }
         public DbSet<Ubication> Ubication { get; set; }
+        public DbSet<Schedule> Schedule { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -34,6 +35,7 @@ namespace Api.IBPR.Website.Persistence.Context
             modelBuilder.ApplyConfiguration(new MainVerseConfiguration());
             modelBuilder.ApplyConfiguration(new ActivityConfiguration());
             modelBuilder.ApplyConfiguration(new UbicationConfiguration());
+            modelBuilder.ApplyConfiguration(new ScheduleConfiguration());
         }
     }
 }

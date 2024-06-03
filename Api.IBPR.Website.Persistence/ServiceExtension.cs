@@ -25,6 +25,7 @@ namespace Api.IBPR.Website.Persistence
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IActivity, ActiviyRepository>();
             services.AddScoped<IUbication, UbicationRepository>();
+            services.AddScoped<ISchedule, ScheduleRepository>();
 
             return services;
         }

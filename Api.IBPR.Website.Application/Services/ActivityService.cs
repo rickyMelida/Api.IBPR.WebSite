@@ -13,9 +13,13 @@ namespace Api.IBPR.Website.Application.Services
     {
         private readonly IActivity _activityRepository;
         private readonly IUbication _ubicationRepository;
+        private readonly ISchedule _scheduleRepository;
 
-        public ActivityService(IActivity activityRepository, IUbication ubicationRepository) =>
-            (_activityRepository, _ubicationRepository) = (activityRepository, ubicationRepository);
+        private readonly IImage _imageRepository;
+
+        public ActivityService(IActivity activityRepository, IUbication ubicationRepository, ISchedule scheduleRepository, IImage imagRepository) =>
+            (_activityRepository, _ubicationRepository, _scheduleRepository, _imageRepository) = 
+            (activityRepository, ubicationRepository, scheduleRepository, imagRepository);
 
         public async Task<List<ActivityDetails>> GetActivities()
         {

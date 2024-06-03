@@ -1,7 +1,6 @@
 ﻿using NUnit.Framework;
 using Api.IBPR.Website.Domain.Entities;
 using Moq;
-using System;
 using Api.IBPR.Website.Application.Repositories;
 using System.Threading.Tasks;
 using Api.IBPR.Website.Application.Services;
