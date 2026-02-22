@@ -1,6 +1,6 @@
-namespace Api.IBPR.Website.Domain.Entities
+namespace Api.IBPR.Website.Application.DTOs
 {
-    public class Activity
+	public class ActivityDto
     {
         public int Id { get; set; }
         public string Name { get; set; }

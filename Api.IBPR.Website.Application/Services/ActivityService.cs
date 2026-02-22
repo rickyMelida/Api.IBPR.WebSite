@@ -1,7 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Api.IBPR.Website.Application.DTOs;
 using Api.IBPR.Website.Application.Interfaces;
 using Api.IBPR.Website.Application.Repositories;
 using Api.IBPR.Website.Domain.Entities;
@@ -9,58 +6,73 @@ using Api.IBPR.Website.Domain.Exceptions;
 
 namespace Api.IBPR.Website.Application.Services
 {
-    public class ActivityService : IActivityServices
-    {
-        private readonly IActivity _activityRepository;
-        private readonly IUbication _ubicationRepository;
-        private readonly ISchedule _scheduleRepository;
+	public class ActivityService : IActivityServices
+	{
+		private readonly IActivity _activityRepository;
 
-        private readonly IImage _imageRepository;
+		public ActivityService(IActivity activityRepository) =>
+			_activityRepository = activityRepository;
+		public async Task<ActivityDto> CreateActivity(ActivityDto activityDto)
+		{
+			try
+			{
+				var activity = new Activity
+				{
+					Name = activityDto.Name,
+					Description = activityDto.Description,
+					Schedule = activityDto.Schedule,
+					Ubication = activityDto.Ubication,
+					Image = activityDto.Image
+				};
 
-        public ActivityService(IActivity activityRepository, IUbication ubicationRepository, ISchedule scheduleRepository, IImage imagRepository) =>
-            (_activityRepository, _ubicationRepository, _scheduleRepository, _imageRepository) = 
-            (activityRepository, ubicationRepository, scheduleRepository, imagRepository);
+				var createdActivity = await _activityRepository.SetActivity(activity);
 
-        public async Task<List<ActivityDetails>> GetActivities()
-        {
-            var result = (from activity in await _activityRepository.GetActivities()
-                          join ubication in await _ubicationRepository.GetUbications()
-                          on activity.Ubication equals ubication.Id
-                          select new ActivityDetails
-                          {
-                              Id = activity.Id,
-                              Name = activity.Name,
-                              Description = activity.Description,
-                              DateActivity = activity.DateActivity,
-                              Site = ubication.Site,
-                              Direction = ubication.Direction,
-                          }).ToList<ActivityDetails>();
+				activityDto.Id = createdActivity.Id;
+				return activityDto;
+			}
+			catch (Exception ex)
+			{
+				throw new ActivityException("Error al crear la actividad");
+			}
+		}
 
-            if (result.Count == 0)
-                throw new ActivityException();
+		public async Task<List<ActivityDto>> GetActivities()
+		{
+			var result = await _activityRepository.GetActivities();
 
-            return result;
-        }
+			if (result.Count == 0)
+				throw new ActivityException("No se encontraron actividades");
 
-        public async Task<ActivityDetails> GetActivityById(int activityId)
-        {
-            var result = (from activity in await _activityRepository.GetActivities()
-                          join ubication in await _ubicationRepository.GetUbications()
-                          on activity.Ubication equals ubication.Id
-                          select new ActivityDetails
-                          {
-                              Id = activity.Id,
-                              Name = activity.Name,
-                              Description = activity.Description,
-                              DateActivity = activity.DateActivity,
-                              Site = ubication.Site,
-                              Direction = ubication.Direction,
-                          }).Where(e => e.Id == activityId).FirstOrDefault();
+			return new List<ActivityDto>(from activity in result
+										 select new ActivityDto
+										 {
+											 Id = activity.Id,
+											 Name = activity.Name,
+											 Description = activity.Description,
+											 Schedule = activity.Schedule,
+											 Ubication = activity.Ubication,
+											 Image = activity.Image
+										 }).ToList();
 
-            if (result == null)
-                throw new ActivityException();
+		}
 
-            return result;
-        }
-    }
+		public async Task<ActivityDto> GetActivityById(int activityId)
+		{
+			var result = (from activity in await _activityRepository.GetActivities()
+						  select new ActivityDto
+						  {
+							  Id = activity.Id,
+							  Name = activity.Name,
+							  Description = activity.Description,
+							  Schedule = activity.Schedule,
+							  Ubication = activity.Ubication,
+							  Image = activity.Image
+						  }).FirstOrDefault(e => e.Id == activityId);
+
+			if (result == null)
+				throw new ActivityException("No se encontró la actividad");
+
+			return result;
+		}
+	}
 }

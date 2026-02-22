@@ -25,7 +25,7 @@ namespace Api.IBPR.Website.Persistence.Repositories
         public async Task<List<Activity>> GetLastActivity(int amount)
         {
             return await _context.Activity
-                         .OrderByDescending(p => p.DateActivity)
+                         .OrderByDescending(p => p.Schedule)
                          .Take(amount)
                          .ToListAsync();
         }

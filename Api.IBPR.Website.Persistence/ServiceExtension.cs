@@ -12,7 +12,6 @@ namespace Api.IBPR.Website.Persistence
         public static IServiceCollection ConfigurePersistence(this IServiceCollection services, IConfiguration configuration)
         {
             var connectionString = configuration.GetConnectionString("PostgresConnection");
-            var oracleConnectionString = configuration.GetConnectionString("OracleConnection");
             
             services.AddDbContext<AppDbContext>(opt => opt.UseNpgsql(connectionString));
             services.AddScoped<IVerse, VerseRepository>();
