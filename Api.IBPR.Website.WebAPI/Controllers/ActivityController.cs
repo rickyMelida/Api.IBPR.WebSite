@@ -1,7 +1,6 @@
 using Api.IBPR.Website.Application.CQRS.Activities.Commands;
 using Api.IBPR.Website.Application.CQRS.Activities.Queries;
 using Api.IBPR.Website.Application.DTOs;
-using Api.IBPR.Website.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

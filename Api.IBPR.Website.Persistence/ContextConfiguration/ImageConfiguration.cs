@@ -8,7 +8,7 @@ namespace Api.IBPR.Website.Persistence.ContextConfiguration
     {
         public void Configure(EntityTypeBuilder<Image> builder)
         {
-            builder.ToTable("images", "website");
+            builder.ToTable("images", "ibpr");
 
             builder.Property(e => e.Id).HasColumnName("id");
             builder.Property(e => e.Name).HasColumnName("name");

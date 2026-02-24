@@ -1,9 +1,9 @@
-namespace Api.IBPR.Website.Domain.Common
+namespace Api.IBPR.Website.Application.DTOs
 {
-    public class Ubication
-    {
-        public int Id { get; set; }
+	public class UbicationDto
+	{
+		public int Id { get; set; }
         public string Site { get; set; } = String.Empty;
         public string Address { get; set; } = String.Empty;
-    }
+	}
 }
