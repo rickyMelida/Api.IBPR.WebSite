@@ -11,7 +11,7 @@ namespace Api.IBPR.Website.Application
         {
             services.AddScoped<IVerseServices, VerseService>();
             services.AddScoped<ICoverImagesService, CoverImagesService>();
-            services.AddScoped<IActivityServices, ActivityService>();
+            services.AddScoped<IActivityService, ActivityService>();
             services.AddMediatR(typeof(ServiceExtension).Assembly);
         }
     }

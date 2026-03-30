@@ -7,12 +7,12 @@ namespace Api.IBPR.Website.Application.CQRS.Activities.Queries
 {
     public class GetActivityByIdQueryHandler : IRequestHandler<GetActivityByIdQuery, ActivityDto>
     {
-        private readonly IActivityServices _activityServices;
+        private readonly IActivityService _activityService;
 
-        public GetActivityByIdQueryHandler(IActivityServices activityServices) =>
-            _activityServices = activityServices;
+        public GetActivityByIdQueryHandler(IActivityService activityService) =>
+            _activityService = activityService;
 
         public Task<ActivityDto> Handle(GetActivityByIdQuery request, CancellationToken cancellationToken) =>
-            _activityServices.GetActivityById(request.ActivityId);
+            _activityService.GetActivityById(request.ActivityId);
     }
 }

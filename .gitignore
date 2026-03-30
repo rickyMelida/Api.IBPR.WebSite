@@ -146,4 +146,8 @@ Api.IBPR.Website.Persistence/bin/
 Api.IBPR.Website.Test/bin/
 
 #others
+
+# Sensitive config files - do not commit real credentials
+Api.IBPR.Website.WebAPI/appsettings.Development.json
+Api.IBPR.Website.WebAPI/appsettings.json
 dataEXamples

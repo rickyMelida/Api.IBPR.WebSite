@@ -6,11 +6,11 @@ using Api.IBPR.Website.Domain.Exceptions;
 
 namespace Api.IBPR.Website.Application.Services
 {
-	public class ActivityService : IActivityServices
+	public class ActivityService : IActivityService
 	{
-		private readonly IActivity _activityRepository;
+		private readonly IActivityRepository _activityRepository;
 
-		public ActivityService(IActivity activityRepository) =>
+		public ActivityService(IActivityRepository activityRepository) =>
 			_activityRepository = activityRepository;
 		public async Task<ActivityDto> CreateActivity(ActivityDto activityDto)
 		{

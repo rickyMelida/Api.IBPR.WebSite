@@ -22,9 +22,9 @@ namespace Api.IBPR.Website.Persistence
             services.AddScoped<IImage, ImageRepository>();
             services.AddScoped<ICoverImage, CoverImageRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddScoped<IActivity, ActiviyRepository>();
-            services.AddScoped<IUbication, UbicationRepository>();
-            services.AddScoped<ISchedule, ScheduleRepository>();
+            services.AddScoped<IActivityRepository, ActivityRepository>();
+            services.AddScoped<IUbicationRepository, UbicationRepository>();
+            services.AddScoped<IScheduleRepository, ScheduleRepository>();
 
             return services;
         }

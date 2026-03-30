@@ -6,12 +6,12 @@ namespace Api.IBPR.Website.Application.CQRS.Activities.Commands
 {
     public class CreateActivityCommandHandler : IRequestHandler<CreateActivityCommand, ActivityDto>
     {
-        private readonly IActivityServices _activityServices;
+        private readonly IActivityService _activityService;
 
-        public CreateActivityCommandHandler(IActivityServices activityServices) =>
-            _activityServices = activityServices;
+        public CreateActivityCommandHandler(IActivityService activityService) =>
+            _activityService = activityService;
 
         public Task<ActivityDto> Handle(CreateActivityCommand request, CancellationToken cancellationToken) =>
-            _activityServices.CreateActivity(request.ActivityDto);
+            _activityService.CreateActivity(request.ActivityDto);
     }
 }

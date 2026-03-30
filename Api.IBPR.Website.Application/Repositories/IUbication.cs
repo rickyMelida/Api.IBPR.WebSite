@@ -6,7 +6,7 @@ using Api.IBPR.Website.Domain.Common;
 
 namespace Api.IBPR.Website.Application.Repositories
 {
-    public interface IUbication
+    public interface IUbicationRepository
     {
         Task<List<Ubication>> GetUbications();
         Task<Ubication> GetUbication(int id);

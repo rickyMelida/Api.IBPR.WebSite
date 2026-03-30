@@ -2,7 +2,7 @@ using Api.IBPR.Website.Domain.Entities;
 
 namespace Api.IBPR.Website.Application.Repositories
 {
-    public interface IActivity
+    public interface IActivityRepository
     { 
         Task<List<Activity>> GetActivities();
         Task<Activity> GetActivity(int activityId);

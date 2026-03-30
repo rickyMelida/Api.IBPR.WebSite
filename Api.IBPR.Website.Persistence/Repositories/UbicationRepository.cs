@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Api.IBPR.Website.Persistence.Repositories
 {
-    public class UbicationRepository : IUbication
+    public class UbicationRepository : IUbicationRepository
     {
         private readonly AppDbContext _context;
         private readonly IUnitOfWork _unitOfWork;
@@ -43,7 +43,7 @@ namespace Api.IBPR.Website.Persistence.Repositories
                 return null;
 
             ubication.Site = ubicationModified.Site;
-            ubication.Direction = ubicationModified.Direction;
+            ubication.Address = ubicationModified.Address;
 
             await _unitOfWork.Save();
 

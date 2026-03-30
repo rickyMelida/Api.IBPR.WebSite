@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Api.IBPR.Website.Persistence.Repositories
 {
-    public class ActiviyRepository : IActivity
+    public class ActivityRepository : IActivityRepository
     {
         private readonly AppDbContext _context;
         private readonly IUnitOfWork _unitOfWork;
-        public ActiviyRepository(AppDbContext context, IUnitOfWork unitOfWork) =>
+        public ActivityRepository(AppDbContext context, IUnitOfWork unitOfWork) =>
         (_context, _unitOfWork) = (context, unitOfWork);
 
         public async Task<List<Activity>> GetActivities()

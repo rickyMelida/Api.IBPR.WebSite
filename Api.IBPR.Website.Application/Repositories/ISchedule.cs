@@ -2,7 +2,7 @@ using Api.IBPR.Website.Domain.Common;
 
 namespace Api.IBPR.Website.Application.Repositories
 {
-    public interface ISchedule
+    public interface IScheduleRepository
     {
         Task<List<Schedule>> GetSchedules();
         Task<Schedule> GetSchedule(int id);
